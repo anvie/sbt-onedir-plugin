@@ -2,19 +2,24 @@ sbtPlugin := true
 
 name := "onedir"
 
-version := "0.2"
+version := "0.3"
 
 organization := "com.ansvia"
 
 publishMavenStyle := true
 
+crossPaths := true
+
 publishTo <<= version { (v: String) =>
-  val nexus = "https://oss.sonatype.org/"
+  val nexus = "http://scala.repo.ansvia.com/nexus/"
   if (v.trim.endsWith("SNAPSHOT")) 
     Some("snapshots" at nexus + "content/repositories/snapshots") 
   else
-    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+    //Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+	Some("releases" at nexus + "content/repositories/releases")
 }
+
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
 
 publishArtifact in Test := false
 
@@ -35,7 +40,7 @@ pomExtra := (
   </scm>
   <developers>
     <developer>
-      <id>anvie</id>
+      <id>robin</id>
       <name>Robin Syihab</name>
       <url>http://mindtalk.com/u/robin</url>
     </developer>
