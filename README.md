@@ -9,7 +9,9 @@ Installation
 
 Place this line into global plugins `~/.sbt/plugins/build.sbt` or into specific project `project/plugins.sbt`:
 
-	addSbtPlugin("com.ansvia" % "onedir" % "0.2")
+	resolvers ++= Seq("Ansvia repo" at "http://scala.repo.ansvia.com/releases")
+
+	addSbtPlugin("com.ansvia" % "onedir" % "0.4")
 
 Usage
 --------

@@ -5,14 +5,6 @@ import Keys._
 
 object OneDirPlugin extends Plugin
 {
- // override lazy val settings = Seq(commands += myCommand)
- // 
- // lazy val myCommand = 
- //   Command.command("hello") { (state: State) =>
- //     println("Hi!")
- //     state
- //   }
- 
  override lazy val settings = Seq(oneDir)
 
  lazy val copyDependencies = TaskKey[Unit]("onedir")
@@ -21,8 +13,7 @@ object OneDirPlugin extends Plugin
                                          internalDependencyClasspath in Compile,
                                          mainClass in Runtime, copyResources in Compile) map {
    (updateReport, out, scalaVer, deps, main_class, cress) =>
-	 cress.foreach { z => println("cres: " + z)}
-	 //ress.foreach { x => println("res: " + x) }
+	   //cress.foreach { z => println("cres: " + z) }
      var projDeps = Array[String]()
      deps.foreach {
        depsDir =>
@@ -30,7 +21,7 @@ object OneDirPlugin extends Plugin
          if (x.length > 3){
            val projName = x(x.length - 3)
            println("Copying `" + out / "lib" / projName + "`...")
-           IO.copyDirectory(depsDir.data, out / "lib" / projName)
+           IO.copyDirectory(depsDir.data, out / "lib" / projName, preserveLastModified = true)
            projDeps :+= "lib/" + projName
          }
      }
@@ -40,6 +31,7 @@ object OneDirPlugin extends Plugin
          println("Copying `" + destPath + "`...")
          IO.copyFile(srcPath, destPath, preserveLastModified = true)
      }
+     
      // generate executable script start.sh
      println("Generating start.sh...")
 	 val projDepsStr = if (projDeps.length > 0)

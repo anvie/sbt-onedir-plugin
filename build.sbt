@@ -2,7 +2,7 @@ sbtPlugin := true
 
 name := "onedir"
 
-version := "0.3"
+version := "0.4"
 
 organization := "com.ansvia"
 
