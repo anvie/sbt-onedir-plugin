@@ -4,11 +4,13 @@ name := "onedir"
 
 version := "0.4"
 
+scalaVersion := "2.9.1"
+
 organization := "com.ansvia"
 
 publishMavenStyle := true
 
-crossPaths := true
+crossPaths := false
 
 publishTo <<= version { (v: String) =>
   val nexus = "http://scala.repo.ansvia.com/nexus/"
