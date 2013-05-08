@@ -4,7 +4,7 @@ name := "onedir"
 
 version := "0.5"
 
-scalaVersion := "2.9.1"
+scalaVersion := "2.9.2"
 
 organization := "com.ansvia"
 
@@ -21,7 +21,7 @@ publishTo <<= version { (v: String) =>
 	Some("releases" at nexus + "content/repositories/releases")
 }
 
-credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials-ansvia")
 
 publishArtifact in Test := false
 
