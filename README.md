@@ -1,4 +1,3 @@
-
 SBT Onedir Plugin
 ===================
 
@@ -9,15 +8,15 @@ Installation
 
 Place this line into global plugins `~/.sbt/plugins/build.sbt` or into specific project `project/plugins.sbt`:
 
-	resolvers ++= Seq("Ansvia repo" at "http://scala.repo.ansvia.com/releases")
+    resolvers ++= Seq("Ansvia repo" at "http://scala.repo.ansvia.com/releases")
 
-	addSbtPlugin("com.ansvia" % "onedir" % "0.5")
+    addSbtPlugin("com.ansvia" % "onedir" % "0.5")
 
 Add to your settings:
 
-        import com.ansvia.onedir.OneDirPlugin
+    import com.ansvia.onedir.OneDirPlugin
 
-	OneDirPlugin.onedirSettings: _*
+    OneDirPlugin.onedirSettings: _*
 
 Usage
 --------
