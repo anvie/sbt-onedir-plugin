@@ -2,7 +2,7 @@ sbtPlugin := true
 
 name := "onedir"
 
-version := "0.5"
+version := "0.6"
 
 scalaVersion := "2.9.2"
 
